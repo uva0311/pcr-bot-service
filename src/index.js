@@ -16,14 +16,14 @@ client.once("ready", () => {
 
   // Loop through the command files
   for (const file of commandFiles) {
-    const command = require(`./Commands/${file}`); // Get and define the command file.
+    const command = require(`./commands/${file}`); // Get and define the command file.
     commands.set(command.data.name, command); // Set the command name and file for handler to use.
     commandarray.push(command.data.toJSON()); // Push the command data to an array (for sending to the API).
   }
 
   const rest = new REST({ version: "9" }).setToken(token); // Define "rest" for use in registering commands
   // Register slash commands.
-  ;(async () => {
+  ; (async () => {
     try {
       console.log("Started refreshing application (/) commands.");
 
